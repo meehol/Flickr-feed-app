@@ -1,0 +1,79 @@
+<!doctype html>
+    <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+    <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+    <!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+    <!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+    <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>CODING SYNDICATE LTD</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script type="text/javascript">
+        !function(){function e(e,t){for(var n=0;n<e.length;n++){var a=document.createElement("script");a.src=e[n];var o=document.getElementsByTagName("head")[0],s=!1;a.onload=a.onreadystatechange=function(){s||this.readyState&&"loaded"!=this.readyState&&"complete"!=this.readyState||(s=!0,t(),a.onload=a.onreadystatechange=null,o.removeChild(a))},o.appendChild(a)}}var t=function(){for(var e=
+       
+        // STYLESHEETS
+        ["https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300",
+         "css/styles.css"]
+        
+,t=0;t<e.length;t++){var n=document.createElement("link");n.rel="stylesheet",n.href=e[t];var a=document.getElementsByTagName("head")[0];a.parentNode.insertBefore(n,a)}},n=requestAnimationFrame||mozRequestAnimationFrame||webkitRequestAnimationFrame||msRequestAnimationFrame;n?n(t):window.addEventListener("load",t),e(
+            
+        // REQUIRED LIBRARIES
+        ["js/libs/knockout-2.1.0.debug.js",
+         "js/libs/underscore.js"]
+            
+,function(){function e(){for(var e=
+                             
+        // APP & INIT SCRIPTS
+        ["js/feed-app.js",
+         "js/prologue.js"]
+                             
+,t=0;t<e.length;t++){var n=document.createElement("script");n.src=e[t],document.body.appendChild(n)}}window.addEventListener?window.addEventListener("load",e,!1):window.attachEvent?window.attachEvent("onload",e):window.onload=e})}();
+    </script>
+
+</head>
+<body style="opacity:0;height:100%;width:100vw;">
+
+    <div class="offcanvas-favs">
+        <div class="open-favs">View favourites</div>
+        <div id="favs-container">
+            <ul data-bind="foreach: favorites">
+                <li>
+                    <div class="imgResult" data-bind="event: { click: function(data, event) { $root.openImgInNewTab(photoObj, data, event) }, touchend: function(data, event) { $root.openImgInNewTab(photoObj, data, event) } }, clickBubble: false, touchendBubble: false">
+                        <div class="removeFav" data-bind="event: { click: function(data, event) { $root.removeFromFavorites(photoObj, data, event) }, touchend: function(data, event) { $root.removeFromFavorites(photoObj, data, event) } }, clickBubble: false, touchendBubble: false"></div>
+                        <img class="animate-fadein" data-bind="attr: { src: photoObj.mediaUrl, id: 'fav'+photoObj.id, alt: photoObj.title, title: photoObj.title }" />
+                    </div>
+                </li>
+            </ul>       
+        </div>
+    </div>
+
+    <div class="site-wrapper">
+        <header>
+            <h1>FLICKR FEED APP</h1>
+            <p>
+                Most recent photos uploaded.<br>
+                <em>This site uses local storage.</em>
+            </p>
+        </header>
+        <h4>Feed results:</h4>
+        <div class="main-feed">
+            <div id="photos-container">
+                <ul data-bind="foreach: photos">
+                    <li>
+                        <div class="imgResult" data-bind="event: { click: function(data, event) { $root.addToFavorites(photoObj, data, event); }, touchend: function(data, event) { $root.addToFavorites(photoObj, data, event); } }">
+                            <img class="animate-fadein" data-bind="attr: { src: photoObj.mediaUrl, id: photoObj.id, alt: photoObj.title, title: photoObj.title }" />
+                        </div>
+                    </li>
+                </ul>       
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
